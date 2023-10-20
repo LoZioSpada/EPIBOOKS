@@ -1,3 +1,16 @@
 .textFooter {
     text-align: center;
 }
+
+.image{
+    width: 100%;
+    aspect-ratio: 1/1.7;
+    object-fit: fill;
+}
+
+h5 {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
