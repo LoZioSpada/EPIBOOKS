@@ -2,14 +2,14 @@ import './App.css';
 import Navbar from './Navbar';
 import Welcome from './Welcome';
 import Footer from './Footer';
-import LatestRelease from './LatestRelease';
+import AllTheBooks from './AllTheBooks';
 
 function App() {
   return (
     <>
       <Navbar />
       <Welcome />
-      <LatestRelease />
+      <AllTheBooks />
       <Footer />
     </>
   );
