@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Container, Row, Form, Tabs, Tab } from "react-bootstrap";
-import history from "./books/history.json"
-import fantasy from "./books/fantasy.json"
-import horror from "./books/horror.json"
-import romance from "./books/romance.json"
-import scifi from "./books/scifi.json"
+import history from "../books/history.json"
+import fantasy from "../books/fantasy.json"
+import horror from "../books/horror.json"
+import romance from "../books/romance.json"
+import scifi from "../books/scifi.json"
 import SingleBook from "./SingleBook";
 
 const BooksByGenre = {

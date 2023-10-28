@@ -9,9 +9,9 @@ function BasicExample() {
                 <Navbar.Collapse>
                     <Navbar.Brand href="#home">EPIBOOKS</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">About</Nav.Link>
-                        <Nav.Link href="#pricing">Browse</Nav.Link>
+                        <Nav.Link href="#">Home</Nav.Link>
+                        <Nav.Link href="#">About</Nav.Link>
+                        <Nav.Link href="#">Browse</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
@@ -20,4 +20,3 @@ function BasicExample() {
 }
 
 export default BasicExample;
-
