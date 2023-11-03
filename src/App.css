@@ -14,3 +14,13 @@ h5 {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.dark{
+    background-color: #222;
+    color: #fff;
+}
+
+.light{
+    background-color: #fff;
+    color: #222;
+}

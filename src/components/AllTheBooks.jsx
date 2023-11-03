@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Row, Form, Tabs, Tab } from "react-bootstrap";
+import { Container, Row, Tabs, Tab } from "react-bootstrap";
 import history from "../books/history.json"
 import fantasy from "../books/fantasy.json"
 import horror from "../books/horror.json"
@@ -15,15 +15,13 @@ const BooksByGenre = {
     scifi,
 }
 
-export default function AllTheBooks() {
-    const [searchQuery, setSearchQuery] = useState('')
+export default function AllTheBooks({ searchQuery }) {
     const [selectedGenre, setSelectedGenre] = useState('history')
     const books = BooksByGenre[selectedGenre];
-
-    const BooksByQuery = (book) => 
+    const BooksByQuery = (book) =>
         book.title.toLowerCase().includes(searchQuery.toLowerCase());
-
-    return (
+    
+        return (
         <>
             <Container className="my-5">
                 <Tabs
@@ -37,21 +35,11 @@ export default function AllTheBooks() {
                         <Tab eventKey={genre} title={genre} />
                     ))}
                 </Tabs>
-                <Row className="my-5">
-                    <Form.Group>
-                        <Form.Control
-                            type="text"
-                            placeholder="Search..."
-                            value={searchQuery}
-                            onChange={(event) => setSearchQuery(event.target.value)}
-                        />
-                    </Form.Group>
-                </Row>
 
-                <Row xs={6} md={3}>
-                        {books.filter(BooksByQuery).map((book) => (
-                            <SingleBook book={book} key={book.asin} />
-                        ))}
+                <Row xs={6} md={4}>
+                    {books.filter(BooksByQuery).map((book) => (
+                        <SingleBook book={book} key={book.asin} />
+                    ))}
                 </Row>
             </Container>
         </>
