@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Form, Button } from 'react-bootstrap'
 
-export default function AddComment({ asin }) {
+export default function AddComment({ selected, getAllComments }) {
     const [comment, setComment] = useState({ comment: '', rate: 1, elementId: null, })
 
     useEffect(() => {
         setComment((comment) => ({
             ...comment,
-            elementId: asin
+            elementId: selected
         }))
-    }, [asin])
+    }, [selected])
 
     const sendComment = async (event) => {
         event.preventDefault()
@@ -28,8 +28,9 @@ export default function AddComment({ asin }) {
                 setComment({
                     comment: '',
                     rate: 1,
-                    elementId: null,
+                    elementId: selected,
                 })
+                getAllComments()
             } else {
                 throw new Error('The review was not successfully published!')
             }
@@ -66,7 +67,7 @@ export default function AddComment({ asin }) {
                         <option>5</option>
                     </Form.Control>
                 </Form.Group>
-                <Button variant="primary" type="submit">Add Review</Button>
+                <Button variant="primary" type="submit" className="mt-3">Add Review</Button>
             </Form>
         </div>
     )

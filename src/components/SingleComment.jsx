@@ -1,6 +1,6 @@
 import { Button, ListGroup, } from "react-bootstrap";
 
-export default function SingleComment({ comment }) {
+export default function SingleComment({ comment, getAllComments }) {
     const deleteComment = async (asin) => {
         try {
             let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + asin,
@@ -12,6 +12,7 @@ export default function SingleComment({ comment }) {
                 })
             if(response.ok) {
                 alert('Your review was deleted successfully!')
+                getAllComments()
             } else {
                 throw new Error('Your review was not deleted!')
             }
