@@ -6,7 +6,7 @@ import horror from "../books/horror.json"
 import romance from "../books/romance.json"
 import scifi from "../books/scifi.json"
 import SingleBook from "./SingleBook";
-import ModalComment from './ModalComment';
+import CommentArea from "./CommentArea";
 
 const BooksByGenre = {
     history,
@@ -47,12 +47,9 @@ export default function AllTheBooks({ searchQuery }) {
                             ))}
                         </Row>
                     </Col>
-
-                    {!!selected && <Col xs={4} className="position-sticky" style={{ height: 450, top: 70 }} >
-                        <h3>Comments of:</h3>
-                        <p>{titolo}</p>
-                        <ModalComment selected={selected} setSelected={setSelected} />
-                    </Col>}
+                    <Col>
+                        <CommentArea asin={selected} />
+                    </Col>
                 </Row>
             </Container>
         </>
