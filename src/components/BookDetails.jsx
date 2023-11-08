@@ -7,14 +7,15 @@ import horror from "../books/horror.json"
 import romance from "../books/romance.json"
 import scifi from "../books/scifi.json"
 
+const BooksByGenre = {
+    history,
+    fantasy,
+    horror,
+    romance,
+    scifi,
+}
+
 export default function BookDetails() {
-    const BooksByGenre = {
-        history,
-        fantasy,
-        horror,
-        romance,
-        scifi,
-    }
 
     const params = useParams()
     const foundBook = BooksByGenre.find((book) => book.asin === params.asin)

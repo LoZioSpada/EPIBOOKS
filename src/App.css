@@ -2,10 +2,10 @@
     text-align: center;
 }
 
-.image{
+/* .image{
     width: 100%;
     object-fit: fill;
-}
+} */
 
 h5 {
     white-space: nowrap;
@@ -22,4 +22,8 @@ h5 {
 .light{
     background-color: #fff;
     color: #222;
+}
+
+.navbar a{
+    text-decoration: none;
 }

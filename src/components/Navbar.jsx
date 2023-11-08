@@ -10,12 +10,14 @@ export default function NavBar({ searchQuery, setSearchQuery }) {
     const { theme, setTheme } = useContext(ThemeContext)
 
     return (
-        <div className='px-5'>
+        <>
             <Navbar
-                className={theme === "light" ? "bg-light" : "bg-dark"}
+                className={`px-5 ${theme === "light" ? "bg-light" : "bg-dark"} `}
                 variant={theme}>
+                <Link to='/'>
+                    <Navbar.Brand>EPIBOOKS</Navbar.Brand>
+                </Link>
                 <Navbar.Collapse>
-                    <Navbar.Brand href="#home">EPIBOOKS</Navbar.Brand>
                     <Nav className="me-auto">
                         <Link to='/'>
                             <div className='nav-link'>Home</div>
@@ -40,6 +42,6 @@ export default function NavBar({ searchQuery, setSearchQuery }) {
                     {theme}
                 </button>
             </Navbar>
-        </div>
+        </>
     );
 }

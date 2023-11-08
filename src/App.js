@@ -14,19 +14,19 @@ export default function App() {
   const [theme, setTheme] = useState("light")
 
   return (
-    <BrowserRouter>
-      <ThemeContext.Provider value={{ theme, setTheme }}>
-        <div className={`${theme} App`}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={`${theme} App`}>
+        <BrowserRouter>
           <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
           <Welcome />
           <Routes>
             <Route path='/' element={<AllTheBooks searchQuery={searchQuery} />} />
-            <Route path='/details/:asin' element={<BookDetails />}/>
-            <Route path='*' element={<NotFound />}/>         
+            <Route path='/details/:asin' element={<BookDetails />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
           <Footer />
-        </div>
-      </ThemeContext.Provider>
-    </BrowserRouter>
+        </BrowserRouter>
+      </div>
+    </ThemeContext.Provider>
   );
 }

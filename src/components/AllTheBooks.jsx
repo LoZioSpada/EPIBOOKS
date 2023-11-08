@@ -35,15 +35,15 @@ export default function AllTheBooks({ searchQuery }) {
                     onSelect={(genre) => setSelectedGenre(genre)}
                 >
                     {Object.keys(BooksByGenre).map((genre) => (
-                        <Tab eventKey={genre} title={genre} />
+                        <Tab eventKey={genre} titolo={genre} />
                     ))}
                 </Tabs>
 
                 <Row>
-                    <Col xs={8}>
+                    <Col md={8}>
                         <Row>
                             {books.filter(BooksByQuery).map((book) => (
-                                <SingleBook book={book} key={book.asin} setTitolo={setTitolo} title={book.title} selected={selected} setSelected={setSelected} />
+                                <SingleBook book={book} key={book.asin} setTitolo={setTitolo} titolo={book.titolo} selected={selected} setSelected={setSelected} />
                             ))}
                         </Row>
                     </Col>

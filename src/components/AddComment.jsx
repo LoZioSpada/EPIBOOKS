@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Form, Button } from 'react-bootstrap'
 
-export default function AddComment({ selected, getAllComments }) {
+export default function AddComment({ asin }) {
     const [comment, setComment] = useState({ comment: '', rate: 1, elementId: null, })
 
     useEffect(() => {
         setComment((comment) => ({
             ...comment,
-            elementId: selected
+            elementId: asin
         }))
-    }, [selected])
+    }, [asin])
 
     const sendComment = async (event) => {
         event.preventDefault()
@@ -28,9 +28,8 @@ export default function AddComment({ selected, getAllComments }) {
                 setComment({
                     comment: '',
                     rate: 1,
-                    elementId: selected,
+                    elementId: null,
                 })
-                getAllComments()
             } else {
                 throw new Error('The review was not successfully published!')
             }
