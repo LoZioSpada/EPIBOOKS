@@ -8,18 +8,19 @@ import romance from "../../books/romance.json"
 import scifi from "../../books/scifi.json"
 import styles from "./style.module.scss"
 
-const BooksByGenre = {
+const BooksByGenre = [
     history,
     fantasy,
     horror,
     romance,
     scifi,
-}
+]
 
 export default function BookDetails() {
-
+    
     const params = useParams()
-    const foundBook = BooksByGenre.find((book) => book.asin === params.asin)
+    const books = BooksByGenre[params]
+    const foundBook = books.find((book) => book.asin === params.asin)
 
     return(
         <>

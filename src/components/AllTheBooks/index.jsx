@@ -17,7 +17,6 @@ const BooksByGenre = {
 }
 
 export default function AllTheBooks({ searchQuery }) {
-    const [titolo, setTitolo] = useState('')
     const [selected, setSelected] = useState('')
     const [selectedGenre, setSelectedGenre] = useState('history')
     const books = BooksByGenre[selectedGenre];
@@ -36,7 +35,7 @@ export default function AllTheBooks({ searchQuery }) {
                     onSelect={(genre) => setSelectedGenre(genre)}
                 >
                     {Object.keys(BooksByGenre).map((genre) => (
-                        <Tab eventKey={genre} titolo={genre} />
+                        <Tab eventKey={genre} title={genre} />
                     ))}
                 </Tabs>
 
@@ -44,7 +43,7 @@ export default function AllTheBooks({ searchQuery }) {
                     <Col>
                         <Row>
                             {books.filter(BooksByQuery).map((book) => (
-                                <SingleBook book={book} key={book.asin} setTitolo={setTitolo} titolo={book.titolo} selected={selected} setSelected={setSelected} />
+                                <SingleBook book={book} key={book.asin} selected={selected} setSelected={setSelected} />
                             ))}
                         </Row>
                     </Col>

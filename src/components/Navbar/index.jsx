@@ -28,10 +28,10 @@ export default function NavBar({ searchQuery, setSearchQuery }) {
                         <Link to='/' className={cn(styles.navLink)}>
                             <div className={cn('nav-link')}>Home</div>
                         </Link>
-                        <Link to='/404' className={cn(styles.navLink)}>
+                        <Link to='/about' className={cn(styles.navLink)}>
                             <div className={cn('nav-link')}>About</div>
                         </Link>
-                        <Link to='/404' className={cn(styles.navLink)}>
+                        <Link to='/browse' className={cn(styles.navLink)}>
                             <div className={cn('nav-link')}>Browse</div>
                         </Link>
                     </Nav>
@@ -48,7 +48,7 @@ export default function NavBar({ searchQuery, setSearchQuery }) {
                     variant={dark ? "light" : "dark"}
                     onClick={() => setDark(!dark)}
                 >
-                    {dark ? <SunFill size={20} color='yellow' /> : <MoonFill size={20} color='yellow' />}
+                    {dark ? <SunFill size={22} color='yellow' /> : <MoonFill size={22} color='yellow' />}
                 </Button>
             </Navbar>
         </>
