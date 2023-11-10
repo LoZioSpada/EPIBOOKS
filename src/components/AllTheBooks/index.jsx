@@ -6,7 +6,6 @@ import horror from "../../books/horror.json"
 import romance from "../../books/romance.json"
 import scifi from "../../books/scifi.json"
 import SingleBook from "../SingleBook";
-import CommentArea from "../CommentArea/index";
 import styles from "./style.module.scss"
 
 const BooksByGenre = {
@@ -28,7 +27,7 @@ export default function AllTheBooks({ searchQuery }) {
 
     return (
         <>
-            <Container className="my-5">
+            <Container className="my-5 px-0">
                 <Tabs
                     defaultActiveKey="profile"
                     id="justify-tab-example"
@@ -42,15 +41,12 @@ export default function AllTheBooks({ searchQuery }) {
                 </Tabs>
 
                 <Row>
-                    <Col md={8}>
+                    <Col>
                         <Row>
                             {books.filter(BooksByQuery).map((book) => (
                                 <SingleBook book={book} key={book.asin} setTitolo={setTitolo} titolo={book.titolo} selected={selected} setSelected={setSelected} />
                             ))}
                         </Row>
-                    </Col>
-                    <Col>
-                        <CommentArea asin={selected} />
                     </Col>
                 </Row>
             </Container>
