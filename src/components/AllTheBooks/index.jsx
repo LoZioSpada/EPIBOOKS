@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Container, Row, Tabs, Tab, Col } from "react-bootstrap";
-import history from "../books/history.json"
-import fantasy from "../books/fantasy.json"
-import horror from "../books/horror.json"
-import romance from "../books/romance.json"
-import scifi from "../books/scifi.json"
-import SingleBook from "./SingleBook";
-import CommentArea from "./CommentArea";
+import history from "../../books/history.json"
+import fantasy from "../../books/fantasy.json"
+import horror from "../../books/horror.json"
+import romance from "../../books/romance.json"
+import scifi from "../../books/scifi.json"
+import SingleBook from "../SingleBook";
+import CommentArea from "../CommentArea/index";
+import styles from "./style.module.scss"
 
 const BooksByGenre = {
     history,
@@ -21,6 +22,7 @@ export default function AllTheBooks({ searchQuery }) {
     const [selected, setSelected] = useState('')
     const [selectedGenre, setSelectedGenre] = useState('history')
     const books = BooksByGenre[selectedGenre];
+    
     const BooksByQuery = (book) =>
         book.title.toLowerCase().includes(searchQuery.toLowerCase());
 

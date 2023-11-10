@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Form, Button } from 'react-bootstrap'
+import styles from "./style.module.scss"
 
 export default function AddComment({ asin }) {
     const [comment, setComment] = useState({ comment: '', rate: 1, elementId: null, })

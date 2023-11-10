@@ -1,4 +1,5 @@
 import { Button, ListGroup, } from "react-bootstrap";
+import styles from "./style.module.scss"
 
 export default function SingleComment({ comment, getAllComments }) {
     const deleteComment = async (asin) => {

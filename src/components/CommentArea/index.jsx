@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import CommentList from './CommentList'
-import Error from './Error'
-import Loading from './Loading'
-import AddComment from './AddComment.jsx'
+import CommentList from '../CommentList/index.jsx'
+import Error from '../Error/index.jsx'
+import Loading from '../Loading/index.jsx'
+import AddComment from '../AddComment/index.jsx'
+import styles from "./style.module.scss"
 
 export default function CommentArea ({ asin }) {
     const [comments, setComments] = useState([])

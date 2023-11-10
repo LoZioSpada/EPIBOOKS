@@ -1,5 +1,6 @@
 import { Card, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import styles from "./style.module.scss"
 
 export default function SingleBook({ book, selected, setSelected }) {
     const navigate = useNavigate()

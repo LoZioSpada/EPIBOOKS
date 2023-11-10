@@ -1,4 +1,5 @@
 import { Row, Col } from "react-bootstrap";
+import styles from "./style.module.scss"
 
 export default function NotFound() {
     <Row>

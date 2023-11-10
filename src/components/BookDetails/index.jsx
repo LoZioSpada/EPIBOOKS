@@ -1,11 +1,12 @@
 import { Card, Col, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import CommentArea from './CommentArea'
-import history from "../books/history.json"
-import fantasy from "../books/fantasy.json"
-import horror from "../books/horror.json"
-import romance from "../books/romance.json"
-import scifi from "../books/scifi.json"
+import CommentArea from '../CommentArea/index'
+import history from "../../books/history.json"
+import fantasy from "../../books/fantasy.json"
+import horror from "../../books/horror.json"
+import romance from "../../books/romance.json"
+import scifi from "../../books/scifi.json"
+import styles from "./style.module.scss"
 
 const BooksByGenre = {
     history,
