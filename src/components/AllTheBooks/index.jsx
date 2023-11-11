@@ -1,24 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Container, Row, Tabs, Tab, Col } from "react-bootstrap";
-import history from "../../books/history.json"
-import fantasy from "../../books/fantasy.json"
-import horror from "../../books/horror.json"
-import romance from "../../books/romance.json"
-import scifi from "../../books/scifi.json"
+import GenreContext from "../../contexts/genre";
 import SingleBook from "../SingleBook";
 import styles from "./style.module.scss"
 
-const BooksByGenre = {
-    history,
-    fantasy,
-    horror,
-    romance,
-    scifi,
-}
 
 export default function AllTheBooks({ searchQuery }) {
     const [selected, setSelected] = useState('')
     const [selectedGenre, setSelectedGenre] = useState('history')
+    const { BooksByGenre } = useContext(GenreContext)
     const books = BooksByGenre[selectedGenre];
     
     const BooksByQuery = (book) =>
