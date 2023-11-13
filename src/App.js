@@ -47,12 +47,12 @@ export default function App() {
                   <AllTheBooks searchQuery={searchQuery} />
                 </>}
               />
-              <Route path='/genre/:id' element={
+              <Route path='/:genre/:id' element={
                 <>
                   <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
                   <BookDetails />
                 </>} />
-              <Route path='*' element={<NotFound />} />
+              <Route path='/404' element={<NotFound />} />
             </Routes>
             <Footer />
           </GenreContext.Provider>
