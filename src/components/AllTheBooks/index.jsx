@@ -38,6 +38,7 @@ export default function AllTheBooks({ searchQuery }) {
                                     setSelected={setSelected}
                                     img={book.img}
                                     title={book.title}
+                                    category={book.category}
                                     key={book.asin}
                                     asin={book.asin}
                                     price={book.price} />
