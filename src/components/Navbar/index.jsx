@@ -28,10 +28,10 @@ export default function NavBar({ searchQuery, setSearchQuery }) {
                         <Link to='/' className={cn(styles.navLink)}>
                             <div className={cn('nav-link')}>Home</div>
                         </Link>
-                        <Link to='/about' className={cn(styles.navLink)}>
+                        <Link to='/404' className={cn(styles.navLink)}>
                             <div className={cn('nav-link')}>About</div>
                         </Link>
-                        <Link to='/browse' className={cn(styles.navLink)}>
+                        <Link to='/404' className={cn(styles.navLink)}>
                             <div className={cn('nav-link')}>Browse</div>
                         </Link>
                     </Nav>

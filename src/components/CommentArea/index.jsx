@@ -5,7 +5,7 @@ import Loading from '../Loading/index.jsx'
 import AddComment from '../AddComment/index.jsx'
 import styles from "./style.module.scss"
 
-export default function CommentArea ({ asin }) {
+export default function CommentArea ({ asin, getComments }) {
     const [comments, setComments] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
@@ -42,11 +42,13 @@ export default function CommentArea ({ asin }) {
     }, [asin])
 
     return(
-        <div>
+        <div className="mt-3 text-center">
             {loading && <Loading />}
             {error && <Error />}
-            <AddComment asin={asin} />
-            <CommentList commentsShow={comments} />
+            <h2>Add a comment:</h2>
+            <AddComment asin={asin} getComments={getComments}/>
+            <h2>Comments:</h2>
+            <CommentList commentsShow={comments} getComments={getComments}/>
         </div>
     )
 }

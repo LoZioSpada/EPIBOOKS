@@ -3,42 +3,52 @@ import { Container, Row, Tabs, Tab, Col } from "react-bootstrap";
 import GenreContext from "../../contexts/genre";
 import SingleBook from "../SingleBook";
 import styles from "./style.module.scss"
+import { useNavigate, useParams } from "react-router-dom";
 
 
 export default function AllTheBooks({ searchQuery }) {
-    const [selected, setSelected] = useState('')
-    const [selectedGenre, setSelectedGenre] = useState('history')
+    const [selected, setSelected] = useState(false)
+    const { genre } = useParams()
+    const navigate = useNavigate()
     const { BooksByGenre } = useContext(GenreContext)
-    const books = BooksByGenre[selectedGenre];
-    
-    const BooksByQuery = (book) =>
-        book.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const allTheBooks = BooksByGenre[genre]
+
 
     return (
         <>
             <Container className="my-5 px-0">
                 <Tabs
-                    defaultActiveKey="profile"
-                    id="justify-tab-example"
+                    activeKey={genre ? genre : ""}
+                    id="books"
                     className="my-3"
                     justify
-                    onSelect={(genre) => setSelectedGenre(genre)}
+                    onSelect={(genre) => { navigate(`/${genre}`) }}
                 >
-                    {Object.keys(BooksByGenre).map((genre) => (
-                        <Tab eventKey={genre} title={genre} />
+                    {Object.keys(BooksByGenre).map((genre, i) => (
+                        <Tab eventKey={genre} title={genre} key={i} />
                     ))}
                 </Tabs>
 
-                <Row>
+                <Row className="mt-5">
                     <Col>
                         <Row>
-                            {books.filter(BooksByQuery).map((book) => (
-                                <SingleBook book={book} key={book.asin} selected={selected} setSelected={setSelected} />
-                            ))}
+                            {allTheBooks ? (allTheBooks.filter((b) => b.title.toLowerCase().includes(searchQuery)).map((book) => (
+                                <SingleBook
+                                    selected={selected}
+                                    setSelected={setSelected}
+                                    img={book.img}
+                                    title={book.title}
+                                    key={book.asin}
+                                    asin={book.asin}
+                                    price={book.price} />
+                            )
+                            )) : (
+                                <h1 className="text-center">CHOOSE A GENRE</h1>
+                            )}
+                            </Row>
+                            </Col>
                         </Row>
-                    </Col>
-                </Row>
-            </Container>
-        </>
-    );
+                    </Container>
+                </>
+                );
 }

@@ -23,9 +23,9 @@ export default function SingleComment({ comment, getAllComments }) {
     }
 
     return(
-        <ListGroup.Item>
+        <ListGroup.Item className="d-flex justify-content-between">
             {comment.comment}
-            ,<Button
+            <Button
                 variant="danger"
                 className="ms-3"
                 onClick={() => deleteComment(comment._id)}

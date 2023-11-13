@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Form, Button } from 'react-bootstrap'
 import styles from "./style.module.scss"
 
-export default function AddComment({ asin }) {
+export default function AddComment({ asin, getComments }) {
     const [comment, setComment] = useState({ comment: '', rate: 1, elementId: null, })
 
     useEffect(() => {
@@ -31,6 +31,7 @@ export default function AddComment({ asin }) {
                     rate: 1,
                     elementId: null,
                 })
+                getComments()
             } else {
                 throw new Error('The review was not successfully published!')
             }
