@@ -4,20 +4,20 @@ import CommentArea from '../CommentArea/index'
 import styles from "./style.module.scss"
 import { useCallback, useContext, useEffect, useState } from 'react'
 import GenreContext from '../../contexts/genre'
+import CommentList from '../CommentList'
 import cn from 'classnames'
 
 
 export default function BookDetails() {
-    const [loading, setLoading] = useState()
     const { id, genre } = useParams()
     const { BooksByGenre } = useContext(GenreContext)
+    const [allComments, setAllComments] = useState([])
 
     const navigate = useNavigate()
 
     const foundBook = BooksByGenre[genre].find((book) => book.asin === id)
 
-    const getComments = useCallback(() => {
-        setLoading(true)
+    const getAllComments = useCallback(() => {
         fetch(`https://striveschool-api.herokuapp.com/api/comments/${id}`, {
             method: 'GET',
             headers: {
@@ -26,13 +26,13 @@ export default function BookDetails() {
             },
         })
             .then((response) => response.json())
+            .then(setAllComments)
             .catch(() => alert("Something went wrong!"))
-            .finally(() => setLoading(false))
     }, [id])
 
     useEffect(() => {
-        getComments()
-    }, [getComments])
+        getAllComments()
+    }, [getAllComments])
 
     if (!foundBook) {
         navigate('/404')
@@ -56,6 +56,7 @@ export default function BookDetails() {
                         </div>
                             <CommentArea asin={id} />
                     </Col>
+                    <CommentList getAllComments={getAllComments} allComments={allComments}/>
                 </Row>
             </>
         )

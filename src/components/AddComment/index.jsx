@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import { Form, Button } from 'react-bootstrap'
 import styles from "./style.module.scss"
 
-export default function AddComment({ asin, getComments }) {
+export default function AddComment({ id, getAllComments }) {
     const [comment, setComment] = useState({ comment: '', rate: 1, elementId: null, })
 
     useEffect(() => {
         setComment((comment) => ({
             ...comment,
-            elementId: asin
+            elementId: id
         }))
-    }, [asin])
+    }, [id])
 
     const sendComment = async (event) => {
         event.preventDefault()
@@ -31,7 +31,7 @@ export default function AddComment({ asin, getComments }) {
                     rate: 1,
                     elementId: null,
                 })
-                getComments()
+                getAllComments()
             } else {
                 throw new Error('The review was not successfully published!')
             }
