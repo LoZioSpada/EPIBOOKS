@@ -1,11 +1,8 @@
 import { Button, ListGroup, } from "react-bootstrap";
 import { Trash, PencilSquare } from "react-bootstrap-icons";
-import styles from "./style.module.scss"
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 
 export default function SingleComment({ setComments, comment, id }) {
-    const[editComment, setEditComment] = useState(null)
-    const [loading, setLoading] = useState(null)
     
     const getComments = useCallback(() => {
         fetch(`https://striveschool-api.herokuapp.com/api/books/${id}/comments/`,
@@ -17,9 +14,6 @@ export default function SingleComment({ setComments, comment, id }) {
         })
           .then((response) => response.json())
           .then(setComments)
-          .finally(() => {
-            setLoading(false);
-          });
       });
     
     

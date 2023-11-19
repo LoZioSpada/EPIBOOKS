@@ -1,5 +1,4 @@
 import Alert from 'react-bootstrap/Alert';
-import styles from "./style.module.scss"
 
 export default function AdditionalContentExample() {
   return (
