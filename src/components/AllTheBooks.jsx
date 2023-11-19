@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { Container, Row, Tabs, Tab, Col } from "react-bootstrap";
-import GenreContext from "../../contexts/genre";
-import SingleBook from "../SingleBook";
-import styles from "./style.module.scss"
+import GenreContext from "../contexts/genre";
+import SingleBook from "./SingleBook";
 import { useNavigate, useParams } from "react-router-dom";
 
 

@@ -17,7 +17,7 @@ export default function SingleBook({ selected, setSelected, ...book }) {
                 <Card.Body className="card-body p-1">
                     <h5 className={cn("card-title", styles.titleBook)}>{book.title}</h5>
                     <p className="card-text">Category: {book.category}</p>
-                    <p className={cn("card-text", styles.priceBook)}> Price: {book.price}</p>
+                    <p className={cn("card-text", styles.priceBook)}> Price: {book.price} €</p>
                     <Link to={`/${genre}/${book.asin}`}>
                         <Button>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-info-circle" viewBox="0 0 16 16">
