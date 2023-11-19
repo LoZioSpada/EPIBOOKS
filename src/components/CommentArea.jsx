@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import CommentList from './CommentList/index.jsx'
+import CommentList from './CommentList.jsx'
 import AddComment from './AddComment.jsx'
 import Error from './Error.jsx'
 import Loading from './Loading.jsx'
